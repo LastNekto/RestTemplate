@@ -31,7 +31,7 @@ public class App {
         //обновить
         User userUpdate = new User(3L, "Thomas", "Shelby", (byte)25);
         HttpEntity<User> putRequest = new HttpEntity<>(userUpdate, headers);
-        ResponseEntity<String> putResponse = restTemplate.exchange(URL + "/3", HttpMethod.PUT, putRequest, String.class );
+        ResponseEntity<String> putResponse = restTemplate.exchange(URL, HttpMethod.PUT, putRequest, String.class );
         String codePart2 = putResponse.getBody();
 
         //удалить
@@ -40,7 +40,7 @@ public class App {
         String codePart3 = deleteResponse.getBody();
 
         //показать
-        String finalCode = codePart1 + codePart2 + codePart3;
+        String finalCode = codePart1 + " " + codePart2 + " " + codePart3;
         System.out.println(finalCode);
     }
 }
